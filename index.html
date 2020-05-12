@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cluster Creator</title>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <!-- Bootstrap Select -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+        <!-- Flags -->
+        <link rel="stylesheet" href="node_modules/flag-icon-css/css/flag-icon.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <div class="col-md-6 text-center">
+                        <h1>Cluster Creator</h1>
+
+                        <form>
+
+                          <div class="form-group">
+                            <select class="selectpicker" id="os">
+                                <option data-content="<img src='img/aws.svg' width='20px'> Amazon Linux 1" value="alinux1"></option>
+                                <option data-content="<img src='img/aws.svg' width='20px'> Amazon Linux 2" value="alinux2"></option>
+                                <option data-content="<img src='img/centos.svg' width='20px'> Centos 6" value="centos6"></option>
+                                <option data-content="<img src='img/centos.svg' width='20px'> Centos 7" value="centos7"></option>
+                                <option data-content="<img src='img/ubuntu.svg' width='20px'> Ubuntu 16.04" value="ubuntu1604"></option>
+                                <option data-content="<img src='img/ubuntu.svg' width='20px'> Ubuntu 18.04" value="ubuntu1804"></option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <select class="selectpicker option" id="instance_type">
+                                <option data-content="<img src='img/ec2.svg' width='30px'></option> c5n.18xlarge" value="c5n.18xlarge"></option>
+                                <option data-content="<img src='img/ec2.svg' width='30px'></option> t2.micro" value="t2.micro"></option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <select class="selectpicker option" id="region">
+                                <option data-content="<span class='flag-icon flag-icon-us'></span> us-east-1" value="us-east-1"></option>
+                                <option data-content="<span class='flag-icon flag-icon-us'></span> us-west-2" value="us-west-2"></option>
+                                <option data-content="<span class='flag-icon flag-icon-ie'></span> eu-west-1" value="eu-west-1"></option>
+                                <option data-content="<span class='flag-icon flag-icon-gb'></span> eu-west-2" value="eu-west-1"></option>
+                                <option data-content="<span class='flag-icon flag-icon-de'></span> eu-central-1" value="eu-central-1"></option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <input class="form-check-input" type="checkbox" value="" id="efa">
+                            <label class="form-check-label option" for="efa">
+                              Enable EFA
+                            </label>
+                          </div>
+
+                          <div class="form-group">
+                            <input class="form-check-input" type="checkbox" value="" id="ht">
+                            <label class="form-check-label option" for="efa">
+                              Disable Hyperthreading
+                            </label>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="email">Notification Email</label>
+                            <input type="email" class="form-control option" id="email" default="Notification Email" placeholder="Enter email"></input>
+                          </div>
+
+                          <button type="button" class="btn btn-success" id="create">Create Cluster</button>
+
+                      </form>
+                    </div>
+
+                    </div>
+
+                    <div class="container">
+                      <details>
+                        <summary>Generated AWS ParallelCluster Config file</summary>
+                        <br>
+                      <pre class="prettyprint lang-ini" id="code">
+                      </pre>
+                      </details>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Javascript -->
+        <script src="js/lib/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+        <script src="js/create.js"></script>
+    </body>
+</html>
