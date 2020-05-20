@@ -7,7 +7,7 @@ $(function() {
     os = $("#os").val();
     email = $("#email").val();
 
-    window.location.href = `https://${region}.console.aws.amazon.com/cloudformation/home?region=${region}#/stacks/create/review?stackName=AWS-HPC-Quickstart&templateURL=https://covid19hpc-quickstart.s3.amazonaws.com/cfn.yaml&param_NotificationEmail=${email}`
+    window.location.href = `https://${region}.console.aws.amazon.com/cloudformation/home?region=${region}#/stacks/create/review?stackName=AWS-HPC-Quickstart&templateURL=https://notearshpc-quickstart.s3.amazonaws.com/cfn.yaml&param_NotificationEmail=${email}`
 	});
 
   $(".option").change(function() {
