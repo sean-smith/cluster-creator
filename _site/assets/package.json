@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bootstrap-slider": "^11.0.2",
+    "flag-icon-css": "^3.5.0"
+  }
+}

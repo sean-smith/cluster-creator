@@ -1,0 +1,8 @@
+<div class="form-group">
+    <label for="head_node_instance_type" class="form-label"><b>Instance Type</b></label>
+    <select class="selectpicker option" id="head_node_instance_type">
+        {% for item in site.data.instances %}
+            <option data-content="<img src='/assets/img/ec2.svg' width='30px'></option> {{item.name}} ({{item.vcpus}} vcpus, {{item.memory}}GB memory)" value="{{item.name}}" {{ item.default }}></option>
+        {% endfor %}
+    </select>
+</div>
