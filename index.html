@@ -19,27 +19,24 @@
                     <h2>Image</h2>
 
                     {% include os.html %}
-
-                    {% include text_field.html title="Use a Custom AMI?" placeholder="Custom AMI" id="ami" %}
+                    
+                    {% include ami.html title="Use a Custom AMI?" id="CustomAmi" placeholder="AMI ID: ami-12345" help="Custom AMI's provide a way to customize the cluster. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/pcluster.build-image-v3.html'>Image section.</a>"%}
                     
                     <h2>Head Node</h2>
 
-                    {% include instance_type.html %}
-
-                    <div class="form-group">
-                        <div class="form-check form-switch">
-                          <label><b>Disable Hyperthreading</b></label>
-                          <input type="checkbox" id="disable_hyperthreading" value="true"> 
-                        </div>
-                    </div>
+                    {% include headnode.html %}
 
                     <h2>Compute Queues</h2>
 
-                    {% include queue.html %}
+                    {% include slider.html title="Number of Queues" id='num_queues' min='1' max='5' step='1' default='1' %}
+
+                    {% include queue.html number='1' %}
+                    {% include queue.html number='2' %}
+                    {% include queue.html number='3' %}
+                    {% include queue.html number='4' %}
+                    {% include queue.html number='5' %}
 
                     <h2>Security</h2>
-
-                    {% include text_field.html title="Key Name" placeholder="SSH Key Name" id="key_name" %}
 
                     {% include text_field.html title="Allowed IPs" placeholder="Allowed IP's CIDR range" id="allowed_ips" %}
 
@@ -47,14 +44,7 @@
 
                     <h2>Storage</h2>
 
-                    <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
-
-                    <div class="form-group">
-                      <label for="key_name" class="control-label col-sm-2"><b>Root Volume Size</b></label>
-                      <div class="col-sm-4">
-                        <input type="number" id="key_name" class="form-control">
-                      </div>
-                    </div>
+                    {% include storage.html %}
 
                   </form>
 
@@ -75,6 +65,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
         <script src="/assets/js/lib/bootstrap-slider.min.js"></script>
+        <script src="/assets/node_modules/js-yaml/dist/js-yaml.min.js"></script>
 
         <script src="/assets/js/create.js"></script>
     </body>

@@ -1,4 +1,5 @@
 <div class="form-group">    
-    <label for="ami"><b>{{ include.title }}</b></label>
-    <input type="text" id="{{ include.id }}" placeholder="{{ include.placeholder }}" class="form-control col-md-4">
+    <label for="{{ include.id }}"><b>{{ include.title }}</b></label>
+    <input type="text" id="{{ include.id }}" placeholder="{{ include.placeholder }}" class="form-control col-md-4 pcluster-option" aria-describedby="{{ include.id }}Help">
+    <small id="{{ include.id }}Help" class="form-text text-muted">{{ include.help }}</small>
 </div>

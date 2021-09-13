@@ -1,10 +1,10 @@
-<div class="card">
-    <div class="card-body">
-      <div class="form-group">    
-        <label for="ami"><b>Queue Name</b></label>
-        <input type="text" id="{{ include.id }}" placeholder="{{ include.placeholder }}" class="form-control col-md-4">
-    </div>
-    {% include instance_type.html %}
-    <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/>
-    </div>
+<div class="card" id="queue_{{ include.number }}">
+  <div class="card-body">
+    <h2>Queue {{ include.number }}</h2>
+    {% include text_field.html title="Queue Name" placeholder="i.e. cpu, gpu, c5n" id="queue_1_name" %}
+    {% include instance_type.html id="queue_1_instance_type" %}
+    {% include checkbox.html title="Disable Hyperthreading" id="queue_1_disable_hyperthreading" %}
+    {% include checkbox.html title="Enable EFA" id="queue_1_enable_efa" %}
+    {% include min-max-slider.html id="queue_1_slider" title="Min/Max Instances" %}
+  </div>
 </div>

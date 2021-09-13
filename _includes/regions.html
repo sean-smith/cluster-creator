@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="os" class="form-label"><b>AWS Region</b></label>
-    <select class="selectpicker option" id="region">
+    <select type="select" class="selectpicker option pcluster-option" id="region">
         {% for item in site.data.regions %}
             <option data-content="<span class='flag-icon flag-icon-{{item.country}}'></span> {{item.name}}" value="{{item.name}}" {{ item.default }}></option>
         {% endfor %}

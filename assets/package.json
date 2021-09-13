@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bootstrap-slider": "^11.0.2",
-    "flag-icon-css": "^3.5.0"
+    "flag-icon-css": "^3.5.0",
+    "js-yaml": "^4.1.0"
   }
 }

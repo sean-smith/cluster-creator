@@ -1,5 +1,11 @@
 // Click handler (jquery)
+
 $(function() {
+
+  $("#queue_1_slider").slider({});
+  $("#fsx_capacity").slider({});
+  $("#root_volume_size").slider({});
+  $("#num_queues").slider({});
 
   $("#options").change(function() {
     config()
@@ -7,57 +13,94 @@ $(function() {
 
   config();
 
-  function config(){
-    region = $("#region").val();
-    os = $("#os").val();
-    ami = $("#ami").val();
-    disable_hyperthreading = $("#disable_hyperthreading").is(":checked");
-    head_node_instance_type = $("#head_node_instance_type").val();
-    key_name = $("#key_name").val();
-    allowed_ips = $("#allowed_ips").val();
-    subnet_id = $("#subnet_id").val();
+  function queues (options){
+    template = `Scheduling:
+    Scheduler: slurm
+    SlurmQueues:`;
+    for (let i = 1; i < 6; i++) {
+      if (i <= parseInt(options['num_queues'])) {
+        $(`#queue_${i}`).show();
+        template += `
+      - Name: ${options[`queue_${i}_name`]}
+        ComputeResources:
+        - Name: ${options[`queue_${i}_name`]}
+          DisableSimultaneousMultithreading: ${options[`queue_${i}_disable_hyperthreading`]}
+          InstanceType: ${options[`queue_${i}_instance_type`]}
+          MinCount: ${options[`queue_${i}_slider_min`]}
+          MaxCount: ${options[`queue_${i}_slider_max`]}`;
+      } else {
+        $(`#queue_${i}`).hide();
+      }
+    }
+    return template;
+  }
 
-    $("#code").html(`
-Image:
-  Os: ${os}
-  CustomAmi: ${ami}
+  function image (options){
+    template_image = {};
+    template_image['Os'] = options['Os'];
+    options['CustomAmi_on'] ? template_image['CustomAmi'] = options['CustomAmi']: "";
+    return template_image;
+  }
+
+
+  function config(){
+
+    const options = new Map();
+
+    $('.pcluster-option').each(function(i, obj) {
+      id = $(obj).attr('id');
+      obj = $(`#${id}`);
+      switch (obj.attr('type')) {
+        case 'min-max-slider':
+          options[`${id}_min`] = obj.val().split(',')[0];
+          options[`${id}_max`] = obj.val().split(',')[1];
+          break;
+        case 'checkbox':
+          console.log(`id = ${id}, type = ${obj.attr('type')}, val = ${obj.val()}`)
+          options[id] = obj.is(":checked");
+          break;
+        default:
+          options[id] = obj.val();
+          break;
+      }
+    });
+
+    template = "";
+    template_obj = {};
+
+    template_obj['Image'] = image(options, template_obj);
+
+  template += `
 HeadNode:
-  InstanceType: ${head_node_instance_type}
-  DisableSimultaneousMultithreading: ${disable_hyperthreading}
+  InstanceType: ${options['head_node_instance_type']}
+  DisableSimultaneousMultithreading: ${options['disable_hyperthreading']}
   Networking:
-    SubnetId: ${subnet_id}
+    SubnetId: ${options['subnet_id']}
   Ssh:
-    KeyName: ${key_name}
+    KeyName: ${options['key_name']}
   Imds:
-    Secured: true
-Scheduling:
-  Scheduler: slurm
-  SlurmQueues:
-  - Name: gpu
-    ComputeResources:
-    - Name: gpu
-      InstanceType: g4dn.8xlarge 
-      MinCount: 0
-      MaxCount: 100
-    Networking:
-      SubnetIds:
-      - subnet-5eda8e04 
-  - Name: cpu
-    ComputeResources:
-    - Name: cpu
-      InstanceType: c5.24xlarge 
-      MinCount: 0
-      MaxCount: 100
-    Networking:
-      SubnetIds:
-      - ${subnet_id}
+    Secured: true`;
+    
+  template += queues(options);
+  
+
+  
+  
+
+template += `
 SharedStorage:
   - Name: fsx
-    MountDir: /fsx
+    MountDir: ${options['fsx_mount_point']}
     StorageType: FsxLustre
     FsxLustreSettings:
-      StorageCapacity: 1200
-      DeploymentType: SCRATCH_2`)
+      StorageCapacity: ${options['fsx_capacity']}
+      DeploymentType: SCRATCH_2`;
+      
+
+
+      // $("#code").html(template);
+      $("#code").html(jsyaml.dump(template_obj));
+      
   }
 
 
