@@ -1,0 +1,7 @@
+<div class="form-group">
+    <label for="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}" class="form-label"><b>Operating System</b></label>
+    <select type="select" class="selectpicker pcluster-option" id="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}">
+      <option data-content="<img src='/assets/img/od.svg' width='20px'> Spot" value="SPOT"></option>
+      <option data-content="<img src='/assets/img/spot.svg' width='20px'> On-Demand" value="ONDEMAND"></option>
+    </select>
+</div>

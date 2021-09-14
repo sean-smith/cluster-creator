@@ -1,10 +1,11 @@
 <div class="card" id="queue_{{ include.number }}">
   <div class="card-body">
-    <h2>Queue {{ include.number }}</h2>
-    {% include text_field.html title="Queue Name" placeholder="i.e. cpu, gpu, c5n" id="queue_1_name" %}
-    {% include instance_type.html id="queue_1_instance_type" %}
-    {% include checkbox.html title="Disable Hyperthreading" id="queue_1_disable_hyperthreading" %}
-    {% include checkbox.html title="Enable EFA" id="queue_1_enable_efa" %}
-    {% include min-max-slider.html id="queue_1_slider" title="Min/Max Instances" %}
+    <h2><img src='{{ item.image }}' width='20px'> {{item.name}}" Queue {{ include.number }}</h2>
+    {% include text_field.html title="Queue Name" placeholder="i.e. cpu, gpu, c5n" id="name_queue" number=include.number %}
+    {% include capacity_type.html id="capacity_type_queue" number=include.number %}
+    {% include instance_type.html id="instance_type_queue" number=include.number %}
+    {% include checkbox.html title="Disable Hyperthreading" id="disable_hyperthreading_queue" number=include.number %}
+    {% include checkbox.html title="Enable EFA" id="enable_efa_queue" number=include.number %}
+    {% include min-max-slider.html id="slider_queue" title="Min/Max Instances" number=include.number %}
   </div>
 </div>

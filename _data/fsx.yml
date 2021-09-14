@@ -1,0 +1,7 @@
+- name: SCRATCH_2
+  value: SCRATCH_2
+- name: SCRATCH_1
+  value: SCRATCH_1
+- name: PERSISTENT_1
+  value: PERSISTENT_1
+  default: selected

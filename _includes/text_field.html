@@ -1,5 +1,5 @@
 <div class="form-group">    
-    <label for="{{ include.id }}"><b>{{ include.title }}</b></label>
-    <input type="text" id="{{ include.id }}" placeholder="{{ include.placeholder }}" class="form-control col-md-4 pcluster-option" aria-describedby="{{ include.id }}Help">
-    <small id="{{ include.id }}Help" class="form-text text-muted">{{ include.help }}</small>
+    <label for="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}"><b>{{ include.title }}</b></label>
+    <input type="text" id="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}" placeholder="{{ include.placeholder }}" class="form-control col-md-4 pcluster-option" aria-describedby="{{ include.id }}Help">
+    <small id="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}Help" class="form-text text-muted">{{ include.help }}</small>
 </div>

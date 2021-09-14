@@ -1,0 +1,10 @@
+- name: Amazon FSx for Lustre
+  value: FsxLustre
+  image: /assets/img/fsx.svg
+  default: selected
+- name: Amazon Elastic File System
+  value: Efs
+  image: /assets/img/efs.svg
+- name: Amazon Elastic Block Store (EBS)
+  value: Ebs
+  image: /assets/img/ebs.svg

@@ -1,0 +1,8 @@
+<div class="form-group">
+    <label for="{{ include.id }}" class="form-label"><b>{{ include.title }}</b></label>
+    <select class="selectpicker pcluster-option" id="{{ include.id }}" class="pcluster-option">
+        {% for item in site.data.fsx %}
+            <option data-content="<img src='{{ item.image }}' width='20px'> {{item.name}}" value="{{ item.value }}" {{ item.default }}></option>
+        {% endfor %}
+    </select>
+</div>

@@ -1,0 +1,8 @@
+<div class="card">
+    <div class="card-body">
+        {% include selectpicker.html id="shared_storage_type" title="Type of Storage" datafile="site.data.storage" %}
+        {% include text_field.html title="Mount Point" placeholder='/fsx' id='mount_point' %}
+        {% include slider.html title="Storage Capacity" id='fsx_capacity' min='1200' max='100800' step='1200' default='1200' %}
+        {% include selectpicker_fsx.html id="fsx_type" title="Type of FSx Lustre:" datafile="site.data.fsx" %}
+    </div>
+</div>

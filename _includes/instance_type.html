@@ -1,6 +1,6 @@
 <div class="form-group">
-    <label for="{{ include.id }}" class="form-label"><b>Instance Type</b></label>
-    <select class="selectpicker option pcluster-option" id="{{ include.id }}">
+    <label for="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}" class="form-label"><b>Instance Type</b></label>
+    <select class="selectpicker option pcluster-option" id="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}">
         {% for item in site.data.instances %}
             <option data-content="<img src='/assets/img/{{ item.image }}' width='30px'></option> {{item.name}} ({%- if item.gpu -%}{{ item.gpu -}}, {% endif %} {{item.vcpus}} vcpus, {{item.memory}}GB memory)" value="{{item.name}}" {{ item.default }}></option>
         {% endfor %}

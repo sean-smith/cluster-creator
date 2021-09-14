@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="card-body">
+        {% include instance_type.html id="head_node_instance_type" %}
+
+        {% include checkbox.html title="Disable Hyperthreading" id="disable_hyperthreading" %}
+
+        {% include slider.html title="Root Volume Size in GB" id='root_volume_size' min='35' max='2048' step='1' default='35' %}
+
+        {% include text_field.html title="SSH Key Name" placeholder="SSH Key Name" id="key_name" help="SSH Key allows you to securely connect to the cluster. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/HeadNode-v3.html#HeadNode-v3-Ssh'>more</a>." %}
+    </div>
+</div>
