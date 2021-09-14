@@ -7,6 +7,15 @@ $(function() {
     config()
 	});
 
+  // copy generated config
+  $("#copy").click(function copy(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($('#code').text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+  });
+
   // show the initial config file
   config();
 
@@ -45,7 +54,10 @@ $(function() {
             InstanceType: options[`instance_type_queue_${i}`],
             MinCount: options[`slider_queue_${i}_min`],
             MaxCount: options[`slider_queue_${i}_max`],
-            CapacityType: options[`capacity_type_queue_${i}`]
+            CapacityType: options[`capacity_type_queue_${i}`],
+            Efa: {
+              Enabled: options[`enable_efa_queue_${i}`]
+            }
           }
         });
       } else {
