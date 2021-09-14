@@ -1,0 +1,6 @@
+- name: On-Demand
+  image: /assets/img/od.svg
+  value: ONDEMAND
+- name: Spot
+  image: /assets/img/spot.svg
+  value: SPOT

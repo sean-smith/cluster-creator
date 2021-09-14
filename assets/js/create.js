@@ -44,7 +44,8 @@ $(function() {
             DisableSimultaneousMultithreading: options[`disable_hyperthreading_queue_${i}`],
             InstanceType: options[`instance_type_queue_${i}`],
             MinCount: options[`slider_queue_${i}_min`],
-            MaxCount: options[`slider_queue_${i}_max`]
+            MaxCount: options[`slider_queue_${i}_max`],
+            CapacityType: options[`capacity_type_queue_${i}`]
           }
         });
       } else {
