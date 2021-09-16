@@ -148,7 +148,7 @@ $(function() {
     });
 
     template_obj = {};
-
+    template_obj['Region'] = options['region'];
     template_obj['Image'] = image(options);
     template_obj['HeadNode'] = head(options);
     template_obj['Scheduling'] = queues(options)
