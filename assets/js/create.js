@@ -48,6 +48,9 @@ $(function() {
         $(`#queue_${i}`).show();
         slurm_queues.push({
           Name: options[`name_queue_${i}`],
+          Networking: [{
+            SubnetIds: options['subnet_id'],
+          }],
           ComputeResources: {
             Name: options[`name_queue_${i}`],
             DisableSimultaneousMultithreading: options[`disable_hyperthreading_queue_${i}`],
