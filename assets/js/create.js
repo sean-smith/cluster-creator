@@ -51,13 +51,13 @@ $(function() {
           Networking: [{
             SubnetIds: options['subnet_id'],
           }],
+          CapacityType: options[`capacity_type_queue_${i}`],
           ComputeResources: {
             Name: options[`name_queue_${i}`],
             DisableSimultaneousMultithreading: options[`disable_hyperthreading_queue_${i}`],
             InstanceType: options[`instance_type_queue_${i}`],
-            MinCount: options[`slider_queue_${i}_min`],
-            MaxCount: options[`slider_queue_${i}_max`],
-            CapacityType: options[`capacity_type_queue_${i}`],
+            MinCount: parseInt(options[`slider_queue_${i}_min`]),
+            MaxCount: parseInt(options[`slider_queue_${i}_max`]),
             Efa: {
               Enabled: options[`enable_efa_queue_${i}`]
             }
@@ -96,7 +96,7 @@ $(function() {
       },
       LocalStorage: {
         RootVolume: {
-          Size: options['root_volume_size'],
+          Size: parseInt(options['root_volume_size']),
         }
       }
     }
