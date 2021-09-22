@@ -79,3 +79,38 @@
   memory: 768
   gpu: 8 x Tesla V100
   image: p3.svg
+- name: g4dn.xlarge
+  vcpus: 4
+  memory: 16
+  gpu: 1 x NVIDIA T4
+  image: od.svg
+- name: g4dn.2xlarge
+  vcpus: 8
+  memory: 32
+  gpu: 1 x NVIDIA T4
+  image: od.svg
+- name: g4dn.4xlarge
+  vcpus: 16
+  memory: 64
+  gpu: 1 x NVIDIA T4
+  image: od.svg
+- name: g4dn.8xlarge
+  vcpus: 32
+  memory: 128
+  gpu: 1 x NVIDIA T4
+  image: od.svg
+- name: g4dn.16xlarge
+  vcpus: 64
+  memory: 256
+  gpu: 1 x NVIDIA T4
+  image: od.svg
+- name: g4dn.12xlarge
+  vcpus: 48
+  memory: 192
+  gpu: 4 x NVIDIA T4
+  image: od.svg
+- name: g4dn.metal
+  vcpus: 96
+  memory: 384
+  gpu: 8 x NVIDIA T4
+  image: od.svg
