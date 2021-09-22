@@ -5,4 +5,5 @@
             <option data-content="<img src='{{ item.image }}' width='30px'> {{item.name}}" value="{{ item.value }}" {{ item.default }}></option>
         {% endfor %}
     </select>
+    <small id="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}Help" class="form-text text-muted">{{ include.help }}</small>
 </div>

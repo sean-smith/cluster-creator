@@ -1,10 +1,10 @@
 <div class="card storage" id="{{ include.id }}">
     <div class="card-body">
         <!-- EBS Options -->
-        {% include text_field.html title="Mount Point" placeholder='/data' id='ebs_mount_point' %}
+        <!-- {% include text_field.html title="Mount Point" placeholder='/data' id='ebs_mount_point' %} -->
         {% include selectpicker.html id="ebs_volume_type" title="Type of EBS Volume" datafile="ebs" %}
         {% include slider.html title="Volume Size in GB" id='ebs_volume_size' min='35' max='2048' step='1' default='35' %}
         {% include checkbox_field.html title="Encrypted EBS?" id="encrypted_ebs" placeholder="kms-1234567" help="Specifies a custom AWS KMS key to use for encryption. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EbsSettings-Encrypted'>EBS Encryption.</a>"%}
-        {% include text_field.html title="Snapshot Id" placeholder='snap-1234567' id='ebs_snapshot_id' %}
+        {% include text_field.html title="Snapshot Id" placeholder='snap-1234567' id='ebs_snapshot_id' help="Specifies the Amazon EBS snapshot ID if you're using a snapshot as the source for the volume. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EbsSettings-SnapshotId'>SnapshotID</a>." %}
     </div>
 </div>

@@ -1,8 +1,10 @@
 <div class="card storage" id="{{ include.id }}">
     <div class="card-body">        
         <!-- FSx options -->
-        {% include text_field.html title="Mount Point" placeholder='/fsx' id='mount_point' %}
+        <!-- {% include text_field.html title="Mount Point" placeholder='/fsx' id='mount_point' %} -->
         {% include slider.html title="Storage Capacity" id='fsx_capacity' min='1200' max='100800' step='1200' default='1200' %}
-        {% include selectpicker.html id="fsx_type" title="Type of FSx Lustre:" datafile="fsx" %}
+        {% include selectpicker.html id="fsx_type" title="Type of FSx Lustre:" datafile="fsx" help="Choose SCRATCH_1 and SCRATCH_2 deployment types when you need temporary storage and shorter-term processing of data. The SCRATCH_2 deployment type provides in-transit encryption of data and higher burst throughput capacity than SCRATCH_1. Choose PERSISTENT_1 deployment type for longer-term storage and workloads and encryption of data in transit. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-FsxLustreSettings-DeploymentType'>DeploymentType</a>." %}
+        {% include text_field.html title="Import Path" placeholder='s3://yourbucket' id='import_path' %}
+        {% include text_field.html title="Export Path" placeholder='s3://yourbucket' id='export_path' help="Set Import/Export Path to read and write files into your filesystem from an S3 bucket. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-FsxLustreSettings-ExportPath'>ExportPath</a> and <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-FsxLustreSettings-ImportPath'>ImportPath</a>."%}
     </div>
 </div>

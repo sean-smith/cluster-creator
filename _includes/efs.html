@@ -1,7 +1,7 @@
 <div class="card storage" id="{{ include.id }}">
     <div class="card-body">
         <!-- EFS options -->
-        {% include text_field.html title="Mount Point" placeholder='/apps' id='efs_mount_point' %}
+        <!-- {% include text_field.html title="Mount Point" placeholder='/apps' id='efs_mount_point' %} -->
         {% include checkbox_field.html title="Encrypted EFS?" id="encrypted_efs" placeholder="kms-1234567" help="Specifies a custom AWS KMS key to use for encryption. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EfsSettings-Encrypted'>EFS Encryption.</a>"%}
         {% include selectpicker.html title="Performance Mode" id="performance_mode" datafile="efs" %}
         {% include checkbox_field.html title="Specify Provisioned Throughput?" id="throughput_mode" placeholder="1-1024" help="Defines the provisioned throughput (from 1-1024 in MiB/s) of the Amazon EFS file system. If not provided filesystem will be created in 'bursting' mode. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EfsSettings-ThroughputMode'>ThroughputMode section.</a>"%}
