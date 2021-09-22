@@ -1,0 +1,5 @@
+- name: generalPurpose
+  value: generalPurpose
+  default: selected
+- name: maxIO
+  value: maxIO

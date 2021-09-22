@@ -20,7 +20,7 @@
 
                     {% include os.html %}
                     
-                    {% include ami.html title="Use a Custom AMI?" id="CustomAmi" placeholder="AMI ID: ami-12345" help="Custom AMI's provide a way to customize the cluster. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/pcluster.build-image-v3.html'>Image section.</a>"%}
+                    {% include checkbox_field.html title="Use a Custom AMI?" id="CustomAmi" placeholder="AMI ID: ami-12345" help="Custom AMI's provide a way to customize the cluster. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/pcluster.build-image-v3.html'>Image section.</a>"%}
                     
                     <h2>Head Node</h2>
 
@@ -36,15 +36,17 @@
                     {% include queue.html number='4' %}
                     {% include queue.html number='5' %}
 
-                    <h2>Security</h2>
+                    <h2>Networking</h2>
 
-                    {% include text_field.html title="Allowed IPs" placeholder="Allowed IP's CIDR range" id="allowed_ips" %}
-
-                    {% include text_field.html title="Subnet ID" placeholder="Subnet for Head/Compute" id="subnet_id" %}
+                    {% include networking.html %}
 
                     <h2>Storage</h2>
+                    {% include selectpicker.html id="shared_storage_type" title="Type of Storage" datafile="storage" %}
+                    <!-- {% include checkbox_field.html title="Use Existing Filesystem?" id="use_existing_fs" placeholder="i.e. fsx-1234 or efs-1234" help="Specify an existing fileystem and mount it to all instances in the cluster. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-FsxLustreSettings-FileSystemId'>FSx Filesystem ID</a>, <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EfsSettings-FileSystemId'>EFS Filesystem ID</a>, <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EbsSettings-VolumeId'>EBS Volume ID</a>" %} -->
 
-                    {% include storage.html %}
+                    {% include fsx.html id="fsx" %}
+                    {% include efs.html id="efs" %}
+                    {% include ebs.html id="ebs" %}
 
                   </form>
 

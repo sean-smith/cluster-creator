@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="{{ include.id }}"><b>{{ include.title }}</b></label>
-    <input type="checkbox" id="CustomAmi_on" class="pcluster-option" data-toggle="collapse" data-target="#{{ include.id }}">
+    <input type="checkbox" id="{{ include.id }}_on" class="pcluster-option" data-toggle="collapse" data-target="#{{ include.id }}">
     <input type="text" id="{{ include.id }}" placeholder="{{ include.placeholder }}" class="form-control col-md-4 collapse pcluster-option" aria-describedby="{{ include.id }}Help">
     <small id="{{ include.id }}Help" class="form-text text-muted">{{ include.help }}</small>
 </div>
