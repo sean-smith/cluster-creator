@@ -121,11 +121,10 @@ $(function() {
           storage_obj['EbsSettings'] = { VolumeId: options['use_existing_fs'] };
           break;
       }
-    } else {  // New Filesytem
+    } else {  // New Filesytems
       switch (options['shared_storage_type']) {
         case 'FsxLustre':
           $(`#fsx`).show();
-          storage_obj['MountDir'] = options['fsx_mount_point'];
           storage_obj['FsxLustreSettings'] = {
             StorageCapacity: options['fsx_capacity'],
             DeploymentType: options['fsx_type']
@@ -135,7 +134,6 @@ $(function() {
           break;
         case 'Efs':
           $(`#efs`).show();
-          storage_obj['MountDir'] = options['efs_mount_point'];
           storage_obj['EfsSettings'] = {
             Encrypted: options['encrypted_efs_on'],
             PerformanceMode: options['performance_mode'],
@@ -146,7 +144,6 @@ $(function() {
           break;
         case 'Ebs':
           $(`#ebs`).show();
-          storage_obj['MountDir'] = options['ebs_mount_point'];
           storage_obj['EbsSettings'] = {
             VolumeType: options['ebs_volume_type'],
             Size: options['ebs_volume_size'],
