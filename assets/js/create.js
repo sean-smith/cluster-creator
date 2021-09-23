@@ -127,8 +127,10 @@ $(function() {
           $(`#fsx`).show();
           storage_obj['FsxLustreSettings'] = {
             StorageCapacity: options['fsx_capacity'],
-            DeploymentType: options['fsx_type']
+            DeploymentType: options['fsx_type'],
+            PerUnitStorageThroughput: options['fsx_per_unit_storage_throughput']
           };
+          options['fsx_data_compression'] ? storage_obj['FsxLustreSettings']['DataCompressionType'] = 'LZ4' : "";
           options['import_path'] != '' ? storage_obj['FsxLustreSettings']['ImportPath'] = options['import_path'] : "";
           options['export_path'] != '' ? storage_obj['FsxLustreSettings']['ExportPath'] = options['export_path'] : "";
           break;
@@ -147,15 +149,16 @@ $(function() {
           storage_obj['EbsSettings'] = {
             VolumeType: options['ebs_volume_type'],
             Size: options['ebs_volume_size'],
-            SnapshotId: options['ebs_snapshot_id']
+            Encrypted: options['encrypted_ebs_on'],
+            DeletionPolicy: options['ebs_deletion_policy']
           };
-          options['encrypted_ebs_on'] ? storage_obj['EbsSettings']['KmsKeyId'] = options['encrypted_ebs'] : "";
+          options['ebs_snapshot_id_on'] ? storage_obj['EbsSettings']['SnapshotId'] = options['ebs_snapshot_id'] : "";
+          options['encrypted_ebs'] != '' ? storage_obj['EbsSettings']['KmsKeyId'] = options['encrypted_ebs'] : "";
           break;
       }
     }
-    return storage_obj;
+    return [storage_obj];
   }
-
 
   function config(){
 
@@ -187,8 +190,8 @@ $(function() {
     template_obj['Region'] = options['region'];
     template_obj['Image'] = image(options);
     template_obj['HeadNode'] = head(options);
-    template_obj['Scheduling'] = queues(options)
-    template_obj['SharedStorage'] = storage(options)
+    template_obj['Scheduling'] = queues(options);
+    template_obj['SharedStorage'] = storage(options);
 
     $("#code").html(jsyaml.dump(template_obj));
       

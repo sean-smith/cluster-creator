@@ -1,0 +1,7 @@
+- name: 50 (PERSISTENT_1)
+  value: 50
+  default: selected
+- name: 100 (PERSISTENT_1)
+  value: 100
+- name: 200 (PERSISTENT_1 & SCRATCH_1 & SCRATCH_2)
+  value: 200

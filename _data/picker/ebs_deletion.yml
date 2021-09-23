@@ -1,0 +1,7 @@
+- name: Delete
+  value: Delete
+  default: selected
+- name: Retain
+  value: Retain
+- name: Snapshot
+  value: Snapshot

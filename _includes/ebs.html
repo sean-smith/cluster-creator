@@ -4,7 +4,8 @@
         <!-- {% include text_field.html title="Mount Point" placeholder='/data' id='ebs_mount_point' %} -->
         {% include selectpicker.html id="ebs_volume_type" title="Type of EBS Volume" datafile="ebs" %}
         {% include slider.html title="Volume Size in GB" id='ebs_volume_size' min='35' max='2048' step='1' default='35' %}
-        {% include checkbox_field.html title="Encrypted EBS?" id="encrypted_ebs" placeholder="kms-1234567" help="Specifies a custom AWS KMS key to use for encryption. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EbsSettings-Encrypted'>EBS Encryption.</a>"%}
-        {% include text_field.html title="Snapshot Id" placeholder='snap-1234567' id='ebs_snapshot_id' help="Specifies the Amazon EBS snapshot ID if you're using a snapshot as the source for the volume. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EbsSettings-SnapshotId'>SnapshotID</a>." %}
+        {% include checkbox_field.html title="Encrypted EBS?" id="encrypted_ebs" placeholder="kms-1234567" help="Specifies if the volume is encrypted. If Encrypted you can optionally specify a KMS Key. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EbsSettings-Encrypted'>EBS Encryption.</a>"%}
+        {% include checkbox_field.html title="Snapshot Id?" id="ebs_snapshot_id" placeholder="snap-1234567" help="Specifies the Amazon EBS snapshot ID if you're using a snapshot as the source for the volume. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EbsSettings-SnapshotId'>SnapshotID</a>."%}
+        {% include selectpicker.html id="ebs_deletion_policy" title="Deletion Policy" datafile="ebs_deletion" help="Specifies whether the volume should be retained, deleted, or snapshotted when the cluster is deleted. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EbsSettings-DeletionPolicy'>DeletionPolicy</a>." %}
     </div>
 </div>

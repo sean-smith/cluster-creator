@@ -1,57 +1,57 @@
-- name: c5n.large	
+- name: c5n.large
   vcpus: 2
   memory: 5.25
   image: c5n.svg
-- name: c5n.xlarge	
-  vcpus: 4	
+- name: c5n.xlarge
+  vcpus: 4
   memory: 10.5
   image: c5n.svg
-- name: c5n.2xlarge	
-  vcpus: 8	
-  memory:	21
+- name: c5n.2xlarge
+  vcpus: 8
+  memory: 21
   image: c5n.svg
-- name: c5n.4xlarge	
-  vcpus: 16	
+- name: c5n.4xlarge
+  vcpus: 16
   memory: 42
   image: c5n.svg
-- name: c5n.9xlarge	
+- name: c5n.9xlarge
   vcpus: 36
   memory: 96
   image: c5n.svg
-- name: c5n.18xlarge	
+- name: c5n.18xlarge
   vcpus: 72
   memory: 192
   image: c5n.svg
-- name: c5n.metal	
-  vcpus: 72	
+- name: c5n.metal
+  vcpus: 72
   memory: 192
   image: c5n.svg
-- name: c5.large	
+- name: c5.large
   vcpus: 2
   memory: 4
   image: c5.svg
   default: selected
-- name: c5.xlarge	
+- name: c5.xlarge
   vcpus: 4
   memory: 8
   image: c5.svg
-- name: c5.2xlarge	
+- name: c5.2xlarge
   vcpus: 8
   memory: 16
   image: c5.svg
-- name: c5.4xlarge	
+- name: c5.4xlarge
   vcpus: 16
   memory: 32
   image: c5.svg
-- name: c5.9xlarge	
+- name: c5.9xlarge
   vcpus: 36
   memory: 72
   image: c5.svg
-- name: c5.12xlarge	
+- name: c5.12xlarge
   vcpus: 48
   memory: 96
   image: c5.svg
-- name: c5.18xlarge	
+- name: c5.18xlarge
   vcpus: 72
   memory: 144
   image: c5.svg
