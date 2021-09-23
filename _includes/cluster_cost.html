@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-body">
+        <h2>Total Cost</h2>
+            <div id="totalcost"></div>
+        <h2>Cost Breakdown</h2>
+        <div class="card">
+            <h3>Head Node</h3>
+            <div id="headnode"></div>
+        </div>
+        <div class="card">
+            <h3>Compute Queues</h3>
+            <small id="{{ include.id }}Help" class="form-text text-muted">Compute Cost is calculated by assuming you use 50% of the instances, i.e. if Max is 10 and Min is 0 we'll assume you average 5 instance @ 100%.</small>
+            <div id="computenodes"></div>
+        </div>
+        <div class="card">
+            <h3 id="storage_title"></h3>
+            <div id="storage"></div>
+        </div>
+    </div>
+</div>

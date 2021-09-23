@@ -1,0 +1,86 @@
+c5.12xlarge:
+  1yreserved: 1.285
+  ondemand: 2.04
+c5.18xlarge:
+  1yreserved: 1.928
+  ondemand: 3.06
+c5.24xlarge:
+  1yreserved: 2.57
+  ondemand: 4.08
+c5.2xlarge:
+  1yreserved: 0.214
+  ondemand: 0.34
+c5.4xlarge:
+  1yreserved: 0.428
+  ondemand: 0.68
+c5.9xlarge:
+  1yreserved: 0.964
+  ondemand: 1.53
+c5.large:
+  1yreserved: 0.054
+  ondemand: 0.085
+c5.xlarge:
+  1yreserved: 0.107
+  ondemand: 0.17
+c5n.18xlarge:
+  1yreserved: 2.449
+  ondemand: 3.888
+c5n.2xlarge:
+  1yreserved: 0.272
+  ondemand: 0.432
+c5n.4xlarge:
+  1yreserved: 0.544
+  ondemand: 0.864
+c5n.9xlarge:
+  1yreserved: 1.225
+  ondemand: 1.944
+c5n.large:
+  1yreserved: 0.068
+  ondemand: 0.108
+c5n.metal:
+  1yreserved: 2.449
+  ondemand: 3.888
+c5n.xlarge:
+  1yreserved: 0.136
+  ondemand: 0.216
+g4dn.12xlarge:
+  1yreserved: 2.465
+  ondemand: 3.912
+g4dn.16xlarge:
+  1yreserved: 2.742
+  ondemand: 4.352
+g4dn.2xlarge:
+  1yreserved: 0.474
+  ondemand: 0.752
+g4dn.4xlarge:
+  1yreserved: 0.759
+  ondemand: 1.204
+g4dn.8xlarge:
+  1yreserved: 1.371
+  ondemand: 2.176
+g4dn.metal:
+  1yreserved: 4.929
+  ondemand: 7.824
+g4dn.xlarge:
+  1yreserved: 0.331
+  ondemand: 0.526
+p3.16xlarge:
+  1yreserved: 16.708
+  ondemand: 24.48
+p3.2xlarge:
+  1yreserved: 2.088
+  ondemand: 3.06
+p3.8xlarge:
+  1yreserved: 8.354
+  ondemand: 12.24
+p3dn.24xlarge:
+  1yreserved: 19.215
+  ondemand: 31.212
+PERSISTENT_1:
+  '50': 0.140
+  '100': 0.190
+  '200': 0.290
+SCRATCH_2:
+  '50': 0.140
+  '100': 0.140
+  '200': 0.140

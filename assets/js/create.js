@@ -160,6 +160,52 @@ $(function() {
     return [storage_obj];
   }
 
+  function get_ec2_cost(template_obj) {
+    // our own price API of sorts
+    $.get( "/assets/prices.yml", function( data ) {
+      total = 0.0;
+      costs = jsyaml.load(data);
+
+      // Head Node Cost
+      head_node = template_obj['HeadNode']['InstanceType'];
+      cost = costs[head_node]['ondemand'] * 720;
+      total += cost;
+      $("#headnode").html(`<h3 style="color:green;" > ${head_node} @ \$ ${(cost).toLocaleString(undefined,{ minimumFractionDigits: 2 })} / month</h3>`)
+
+      // Compute Queues Cost
+      compute_nodes = [];
+      template_obj['Scheduling']['SlurmQueues'].forEach(function(instance) {
+        instance_type = instance['ComputeResources']['InstanceType'];
+        avg = (instance['ComputeResources']['MinCount'] + instance['ComputeResources']['MaxCount']) / 2;
+        cost = costs[instance_type]['ondemand'] * avg * 720;
+        total += cost;
+        compute_nodes.push(`<h3 style="color:green;" > ${avg} x ${instance_type} @ \$ ${(cost).toLocaleString(undefined,{ minimumFractionDigits: 2 })} / month</h3>`)
+      });
+      $("#computenodes").html(compute_nodes);
+
+      // Storage Cost
+      storage_obj = template_obj['SharedStorage'][0];
+      switch (storage_obj['StorageType']) {
+        case 'FsxLustre':
+          size = storage_obj['FsxLustreSettings']['StorageCapacity'];
+          type = storage_obj['FsxLustreSettings']['DeploymentType'];
+          throughput = storage_obj['FsxLustreSettings']['PerUnitStorageThroughput'];
+          cost = costs[type][throughput];
+          total += cost * size;
+          $("#storage_title").html(`${storage_obj['StorageType']} Storage`);
+          $("#storage").html(`<h3 style="color:green;" > ${type} @ \$ ${(cost * size).toLocaleString(undefined,{ minimumFractionDigits: 2 })} / month</h3>`)
+          break;
+        case 'Efs':
+          break;
+        case 'Ebs':
+          break;
+      }
+
+      // Total Cost
+      $("#totalcost").html(`<h1 style="color:green;" >\$ ${(total).toLocaleString(undefined,{ minimumFractionDigits: 2 })} / month</h1>`)
+    });
+  }
+
   function config(){
 
     const options = new Map();
@@ -192,6 +238,8 @@ $(function() {
     template_obj['HeadNode'] = head(options);
     template_obj['Scheduling'] = queues(options);
     template_obj['SharedStorage'] = storage(options);
+
+    get_ec2_cost(template_obj);
 
     $("#code").html(jsyaml.dump(template_obj));
       
