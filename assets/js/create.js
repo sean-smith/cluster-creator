@@ -98,6 +98,9 @@ $(function() {
         RootVolume: {
           Size: parseInt(options['root_volume_size']),
         }
+      },
+      Dcv: {
+        Enabled: options['enable_dcv']
       }
     }
   }
