@@ -48,9 +48,9 @@ $(function() {
         $(`#queue_${i}`).show();
         slurm_queues.push({
           Name: options[`name_queue_${i}`],
-          Networking: [{
-            SubnetIds: options['subnet_id'],
-          }],
+          Networking: {
+            SubnetIds: [options['subnet_id']],
+          },
           CapacityType: options[`capacity_type_queue_${i}`],
           ComputeResources: {
             Name: options[`name_queue_${i}`],
