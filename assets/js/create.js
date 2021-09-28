@@ -52,7 +52,7 @@ $(function() {
             SubnetIds: [options['subnet_id']],
           },
           CapacityType: options[`capacity_type_queue_${i}`],
-          ComputeResources: {
+          ComputeResources: [{
             Name: options[`name_queue_${i}`],
             DisableSimultaneousMultithreading: options[`disable_hyperthreading_queue_${i}`],
             InstanceType: options[`instance_type_queue_${i}`],
@@ -61,7 +61,7 @@ $(function() {
             Efa: {
               Enabled: options[`enable_efa_queue_${i}`]
             }
-          }
+          }]
         });
       } else {
         $(`#queue_${i}`).hide();
@@ -117,8 +117,9 @@ $(function() {
     if (options['use_existing_fs_on']){
       switch (options['shared_storage_type']) {
         case 'FsxLustre':
+          storage_obj['FsxLustreSettings'] = { FileSystemId: options['use_existing_fs'] };
         case 'Efs':
-          storage_obj[options['shared_storage_type']] = { FileSystemId: options['use_existing_fs'] };
+          storage_obj['EfsSettings'] = { FileSystemId: options['use_existing_fs'] };
           break;
         case 'Ebs':
           storage_obj['EbsSettings'] = { VolumeId: options['use_existing_fs'] };
