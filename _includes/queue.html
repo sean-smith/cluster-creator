@@ -6,6 +6,8 @@
     {% include instance_type.html id="instance_type_queue" number=include.number %}
     {% include checkbox.html title="Disable Hyperthreading" id="disable_hyperthreading_queue" number=include.number %}
     {% include checkbox.html title="Enable EFA" id="enable_efa_queue" number=include.number %}
+    {% include checkbox.html title="Enable EFA GPUDirect RDMA" id="enable_gdr_queue" number=include.number help="Only for p4d.24xlarge, See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/Scheduling-v3.html#yaml-Scheduling-SlurmQueues-ComputeResources-Efa-GdrSupport'>GdrSupport</a>." %}
+
     {% include min-max-slider.html id="slider_queue" title="Min/Max Instances" number=include.number %}
   </div>
 </div>

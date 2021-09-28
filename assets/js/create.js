@@ -59,7 +59,8 @@ $(function() {
             MinCount: parseInt(options[`slider_queue_${i}_min`]),
             MaxCount: parseInt(options[`slider_queue_${i}_max`]),
             Efa: {
-              Enabled: options[`enable_efa_queue_${i}`]
+              Enabled: options[`enable_efa_queue_${i}`],
+              GdrSupport: options[`enable_gdr_queue_${i}`]
             }
           }]
         });
