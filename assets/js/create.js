@@ -43,7 +43,7 @@ $(function() {
   // queues section of the config
   function queues (options){
     slurm_queues = []
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i <= 10; i++) {
       if (i <= parseInt(options['num_queues'])) {
         $(`#queue_${i}`).show();
         slurm_queues.push({
