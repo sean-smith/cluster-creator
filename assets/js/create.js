@@ -46,24 +46,29 @@ $(function() {
     for (let i = 1; i <= 10; i++) {
       if (i <= parseInt(options['num_queues'])) {
         $(`#queue_${i}`).show();
-        slurm_queues.push({
+        slurm_queue = {
           Name: options[`name_queue_${i}`],
           Networking: {
             SubnetIds: [options['subnet_id']],
           },
           CapacityType: options[`capacity_type_queue_${i}`],
-          ComputeResources: [{
-            Name: options[`name_queue_${i}`],
+        };
+        compute_resources = [];
+        for (let j = 0; j < options[`instance_type_queue_${i}`].length; j++) {
+          compute_resources.push({
+            Name: `${options[`name_queue_${i}`]}-${options[`instance_type_queue_${i}`][j].replace('.', '-')}`,
             DisableSimultaneousMultithreading: options[`disable_hyperthreading_queue_${i}`],
-            InstanceType: options[`instance_type_queue_${i}`],
+            InstanceType: options[`instance_type_queue_${i}`][j],
             MinCount: parseInt(options[`slider_queue_${i}_min`]),
             MaxCount: parseInt(options[`slider_queue_${i}_max`]),
             Efa: {
               Enabled: options[`enable_efa_queue_${i}`],
               GdrSupport: options[`enable_gdr_queue_${i}`]
             }
-          }]
-        });
+          });
+        }
+        slurm_queue['ComputeResources'] = compute_resources;
+        slurm_queues.push(slurm_queue);
       } else {
         $(`#queue_${i}`).hide();
       }

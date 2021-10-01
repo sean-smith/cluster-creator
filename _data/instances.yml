@@ -1,116 +1,120 @@
-- name: c5n.large
-  vcpus: 2
-  memory: 5.25
-  image: c5n.svg
-- name: c5n.xlarge
-  vcpus: 4
-  memory: 10.5
-  image: c5n.svg
-- name: c5n.2xlarge
-  vcpus: 8
-  memory: 21
-  image: c5n.svg
-- name: c5n.4xlarge
-  vcpus: 16
-  memory: 42
-  image: c5n.svg
-- name: c5n.9xlarge
-  vcpus: 36
-  memory: 96
-  image: c5n.svg
-- name: c5n.18xlarge
-  vcpus: 72
-  memory: 192
-  image: c5n.svg
-- name: c5n.metal
-  vcpus: 72
-  memory: 192
-  image: c5n.svg
-- name: c5.large
-  vcpus: 2
-  memory: 4
-  image: c5.svg
-  default: selected
-- name: c5.xlarge
-  vcpus: 4
-  memory: 8
-  image: c5.svg
-- name: c5.2xlarge
-  vcpus: 8
-  memory: 16
-  image: c5.svg
-- name: c5.4xlarge
-  vcpus: 16
-  memory: 32
-  image: c5.svg
-- name: c5.9xlarge
-  vcpus: 36
-  memory: 72
-  image: c5.svg
-- name: c5.12xlarge
-  vcpus: 48
-  memory: 96
-  image: c5.svg
-- name: c5.18xlarge
-  vcpus: 72
-  memory: 144
-  image: c5.svg
-- name: c5.24xlarge
-  vcpus: 96
-  memory: 192
-  image: c5.svg
-- name: p3.2xlarge
-  vcpus: 8
-  memory: 61
-  gpu: 1 x Tesla V100
-  image: p3.svg
-- name: p3.8xlarge
-  vcpus: 32
-  memory: 244
-  gpu: 4 x Tesla V100
-  image: p3.svg
-- name: p3.16xlarge
-  vcpus: 64
-  memory: 488
-  gpu: 8 x Tesla V100
-  image: p3.svg
-- name: p3dn.24xlarge
-  vcpus: 96
-  memory: 768
-  gpu: 8 x Tesla V100
-  image: p3.svg
-- name: g4dn.xlarge
-  vcpus: 4
-  memory: 16
-  gpu: 1 x NVIDIA T4
-  image: od.svg
-- name: g4dn.2xlarge
-  vcpus: 8
-  memory: 32
-  gpu: 1 x NVIDIA T4
-  image: od.svg
-- name: g4dn.4xlarge
-  vcpus: 16
-  memory: 64
-  gpu: 1 x NVIDIA T4
-  image: od.svg
-- name: g4dn.8xlarge
-  vcpus: 32
-  memory: 128
-  gpu: 1 x NVIDIA T4
-  image: od.svg
-- name: g4dn.16xlarge
-  vcpus: 64
-  memory: 256
-  gpu: 1 x NVIDIA T4
-  image: od.svg
-- name: g4dn.12xlarge
-  vcpus: 48
-  memory: 192
-  gpu: 4 x NVIDIA T4
-  image: od.svg
-- name: g4dn.metal
-  vcpus: 96
-  memory: 384
-  gpu: 8 x NVIDIA T4
-  image: od.svg
+- name: Compute
+  instances:
+    - name: c5n.large
+      vcpus: 2
+      memory: 5.25
+      image: c5n.svg
+    - name: c5n.xlarge
+      vcpus: 4
+      memory: 10.5
+      image: c5n.svg
+    - name: c5n.2xlarge
+      vcpus: 8
+      memory: 21
+      image: c5n.svg
+    - name: c5n.4xlarge
+      vcpus: 16
+      memory: 42
+      image: c5n.svg
+    - name: c5n.9xlarge
+      vcpus: 36
+      memory: 96
+      image: c5n.svg
+    - name: c5n.18xlarge
+      vcpus: 72
+      memory: 192
+      image: c5n.svg
+    - name: c5n.metal
+      vcpus: 72
+      memory: 192
+      image: c5n.svg
+    - name: c5.large
+      vcpus: 2
+      memory: 4
+      image: c5.svg
+      default: selected
+    - name: c5.xlarge
+      vcpus: 4
+      memory: 8
+      image: c5.svg
+    - name: c5.2xlarge
+      vcpus: 8
+      memory: 16
+      image: c5.svg
+    - name: c5.4xlarge
+      vcpus: 16
+      memory: 32
+      image: c5.svg
+    - name: c5.9xlarge
+      vcpus: 36
+      memory: 72
+      image: c5.svg
+    - name: c5.12xlarge
+      vcpus: 48
+      memory: 96
+      image: c5.svg
+    - name: c5.18xlarge
+      vcpus: 72
+      memory: 144
+      image: c5.svg
+    - name: c5.24xlarge
+      vcpus: 96
+      memory: 192
+      image: c5.svg
+- name: GPU
+  instances:
+    - name: p3.2xlarge
+      vcpus: 8
+      memory: 61
+      gpu: 1 x Tesla V100
+      image: p3.svg
+    - name: p3.8xlarge
+      vcpus: 32
+      memory: 244
+      gpu: 4 x Tesla V100
+      image: p3.svg
+    - name: p3.16xlarge
+      vcpus: 64
+      memory: 488
+      gpu: 8 x Tesla V100
+      image: p3.svg
+    - name: p3dn.24xlarge
+      vcpus: 96
+      memory: 768
+      gpu: 8 x Tesla V100
+      image: p3.svg
+    - name: g4dn.xlarge
+      vcpus: 4
+      memory: 16
+      gpu: 1 x NVIDIA T4
+      image: od.svg
+    - name: g4dn.2xlarge
+      vcpus: 8
+      memory: 32
+      gpu: 1 x NVIDIA T4
+      image: od.svg
+    - name: g4dn.4xlarge
+      vcpus: 16
+      memory: 64
+      gpu: 1 x NVIDIA T4
+      image: od.svg
+    - name: g4dn.8xlarge
+      vcpus: 32
+      memory: 128
+      gpu: 1 x NVIDIA T4
+      image: od.svg
+    - name: g4dn.16xlarge
+      vcpus: 64
+      memory: 256
+      gpu: 1 x NVIDIA T4
+      image: od.svg
+    - name: g4dn.12xlarge
+      vcpus: 48
+      memory: 192
+      gpu: 4 x NVIDIA T4
+      image: od.svg
+    - name: g4dn.metal
+      vcpus: 96
+      memory: 384
+      gpu: 8 x NVIDIA T4
+      image: od.svg

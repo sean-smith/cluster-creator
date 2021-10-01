@@ -1,8 +1,12 @@
 <div class="form-group">
     <label for="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}" class="form-label"><b>Instance Type</b></label>
-    <select class="selectpicker option pcluster-option" data-live-search="true" id="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}">
+    <select class="selectpicker option pcluster-option" data-live-search="true" id="{{ include.id }}{%- if include.number -%}_{{ include.number }}{%- endif -%}" {% if include.number %}multiple data-max-options="5"{% endif %}>
         {% for item in site.data.instances %}
-            <option data-content="<img src='/assets/img/{{ item.image }}' width='30px'></option> {{item.name}} ({%- if item.gpu -%}{{ item.gpu -}}, {% endif %} {{item.vcpus}} vcpus, {{item.memory}}GB memory)" value="{{item.name}}" {{ item.default }}></option>
+            <optgroup label="{{ item.name }}">
+                {% for instance in item.instances %}
+                <option data-content="<img src='/assets/img/{{ instance.image }}' width='30px'></option> {{instance.name}} ({%- if instance.gpu -%}{{ instance.gpu -}}, {% endif %} {{instance.vcpus}} vcpus, {{instance.memory}}GB memory)" value="{{instance.name}}" {{ instance.default }}></option>
+                {% endfor %}
+            </optgroup>
         {% endfor %}
     </select>
 </div>
