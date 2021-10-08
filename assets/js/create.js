@@ -39,7 +39,17 @@ $(function() {
     config_yml = $("#code").text();
     download('pcluster.yml', config_yml);
   });
-  
+
+  // Create Cluster Button
+  $("#create").click(function() {
+    config_yml = $("#code").text();
+    config_base64 = btoa(config_yml);
+    cluster_name = $("#cluster_name").val();
+    region = $("#region").val();
+    link = `https://${region}.console.aws.amazon.com/cloudformation/home?region=${region}#/stacks/create/review?stackName=cluster-creator-${cluster_name}&templateURL=https://swsmith.s3.amazonaws.com/template.yml&param_APIStack=pcluster-api&param_ClusterName=${cluster_name}&param_ConfigFile=${config_base64}`;
+    window.location.href = link;
+  });
+
   // queues section of the config
   function queues (options){
     slurm_queues = []
