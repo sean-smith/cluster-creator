@@ -1,3 +1,14 @@
+*.swp
+__pycache__
+.pytest_cache
+.env
+.venv
+*.egg-info
+
 package-lock.json
 _site/*
 .jekyll-*
+cluster-template.yml
+cdk.out
+.cdk.staging
+test.py

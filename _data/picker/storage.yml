@@ -2,9 +2,12 @@
   value: FsxLustre
   image: /assets/img/fsx.svg
   default: selected
-- name: Amazon Elastic File System
+- name: Amazon Elastic File System (EFS)
   value: Efs
   image: /assets/img/efs.svg
 - name: Amazon Elastic Block Store (EBS)
   value: Ebs
+  image: /assets/img/ebs.svg
+- name: No Shared Storage
+  value: None
   image: /assets/img/ebs.svg

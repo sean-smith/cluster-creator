@@ -14,7 +14,7 @@
 
                   <form class="form-horizontal" id="options">
                     
-                    {% include text_field.html title="Cluster Name" placeholder='cluster-name' id='cluster_name' required="required" %}
+                    {% include text_field.html title="Cluster Name" placeholder='cluster-name' id='cluster_name' required="required" default="hpc-cluster" %}
                     {% include regions.html id='region' %}
 
                     <h2>Image</h2>
@@ -48,11 +48,7 @@
 
                     <h2>Storage</h2>
                     {% include selectpicker.html id="shared_storage_type" title="Type of Storage" datafile="storage" %}
-                    {% include text_field.html title="Mount Point" placeholder='/shared' id='mount_point' help="Where to mount the filesystem on both Head and Compute Instances."%}
-                    {% include checkbox_field.html title="Use Existing Filesystem?" id="use_existing_fs" placeholder="i.e. fsx-1234 or efs-1234" help="Specify an existing fileystem and mount it to all instances in the cluster. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-FsxLustreSettings-FileSystemId'>FSx Filesystem ID</a>, <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EfsSettings-FileSystemId'>EFS Filesystem ID</a>, <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EbsSettings-VolumeId'>EBS Volume ID</a>" %}
-                    {% include fsx.html id="fsx" %}
-                    {% include efs.html id="efs" %}
-                    {% include ebs.html id="ebs" %}
+                    {% include storage.html id="storage_options" %}
 
                   </form>
 

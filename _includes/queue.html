@@ -1,7 +1,7 @@
 <div class="card" id="queue_{{ include.number }}">
   <div class="card-body">
     <h2><img src='/assets/img/queue.svg' width='50px'>  Queue {{ include.number }}</h2>
-    {% include text_field.html title="Queue Name" placeholder="i.e. cpu, gpu, c5n" id="name_queue" number=include.number %}
+    {% include text_field.html title="Queue Name" placeholder="i.e. cpu, gpu, c5n" id="name_queue" default="queue-" number=include.number %}
     {% include selectpicker.html id="capacity_type_queue" number=include.number title="Purchasing Type" datafile="capacity_type" %}
     {% include instance_type.html id="instance_type_queue" number=include.number %}
     {% include checkbox.html title="Disable Hyperthreading" id="disable_hyperthreading_queue" number=include.number %}

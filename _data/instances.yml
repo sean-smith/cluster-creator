@@ -61,6 +61,44 @@
       vcpus: 96
       memory: 192
       image: c5.svg
+- name: Mixed
+  instances:
+    - name: m6i.large
+      vcpus: 2
+      memory: 8
+      image: c5.svg
+    - name: m6i.xlarge
+      vcpus: 4
+      memory: 16
+      image: c5.svg
+    - name: m6i.2xlarge
+      vcpus: 8
+      memory: 32
+      image: c5.svg
+    - name: m6i.4xlarge
+      vcpus: 16
+      memory: 64
+      image: c5.svg
+    - name: m6i.8xlarge
+      vcpus: 32
+      memory: 128
+      image: c5.svg
+    - name: m6i.12xlarge
+      vcpus: 48
+      memory: 192
+      image: c5.svg
+    - name: m6i.16xlarge
+      vcpus: 64
+      memory: 256
+      image: c5.svg
+    - name: m6i.24xlarge
+      vcpus: 96
+      memory: 384
+      image: c5.svg
+    - name: m6i.32xlarge
+      vcpus: 128
+      memory: 256
+      image: c5.svg
 - name: GPU
   instances:
     - name: p3.2xlarge

@@ -66,7 +66,7 @@ $(function() {
         slurm_queue = {
           Name: options[`name_queue_${i}`],
           Networking: {
-            SubnetIds: [options['subnet_id']],
+            SubnetIds: [options['subnet_id'] != '' ? options['subnet_id'] : "{subnet_id}"],
           },
           CapacityType: options[`capacity_type_queue_${i}`],
         };
@@ -112,10 +112,10 @@ $(function() {
       InstanceType: options['head_node_instance_type'],
       DisableSimultaneousMultithreading: options['disable_hyperthreading'],
       Networking: {
-        SubnetId: options['subnet_id'],
+        SubnetId: options['subnet_id'] != '' ? options['subnet_id'] : "{subnet_id}",
       },
       Ssh: {
-        KeyName: options['key_name']
+        KeyName: options['key_name'] != '' ? options['key_name'] : "{key_name}",
       },
       LocalStorage: {
         RootVolume: {
@@ -134,6 +134,8 @@ $(function() {
     storage_obj['StorageType'] = options['shared_storage_type'];
     storage_obj['MountDir'] = options['mount_point'];
 
+    // Display storage section but hide individual sections
+    $("#storage_options").show()
     $(`.storage`).hide();
 
     // Existing Filesystems
@@ -148,7 +150,8 @@ $(function() {
           storage_obj['EbsSettings'] = { VolumeId: options['use_existing_fs'] };
           break;
       }
-    } else {  // New Filesytems
+    // New Filesytems
+    } else {
       switch (options['shared_storage_type']) {
         case 'FsxLustre':
           $(`#fsx`).show();
@@ -218,7 +221,7 @@ $(function() {
     template_obj['Image'] = image(options);
     template_obj['HeadNode'] = head(options);
     template_obj['Scheduling'] = queues(options);
-    template_obj['SharedStorage'] = storage(options);
+    options['shared_storage_type'] != 'None' ? template_obj['SharedStorage'] = storage(options) : $("#storage_options").hide();
 
     $("#code").html(jsyaml.dump(template_obj));
       

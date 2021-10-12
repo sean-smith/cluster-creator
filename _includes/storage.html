@@ -1,0 +1,7 @@
+<div id="storage_options">
+    {% include text_field.html title="Mount Point" placeholder='/shared' id='mount_point' help="Where to mount the filesystem on both Head and Compute Instances." default='/shared'%}
+    {% include checkbox_field.html title="Use Existing Filesystem?" id="use_existing_fs" placeholder="i.e. fsx-1234 or efs-1234" help="Specify an existing fileystem and mount it to all instances in the cluster. See <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-FsxLustreSettings-FileSystemId'>FSx Filesystem ID</a>, <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EfsSettings-FileSystemId'>EFS Filesystem ID</a>, <a href='https://docs.aws.amazon.com/parallelcluster/latest/ug/SharedStorage-v3.html#yaml-SharedStorage-EbsSettings-VolumeId'>EBS Volume ID</a>" %}
+    {% include fsx.html id="fsx" %}
+    {% include efs.html id="efs" %}
+    {% include ebs.html id="ebs" %}
+</div>
