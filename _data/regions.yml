@@ -26,9 +26,9 @@
   country: de
 - name: us-east-1
   country: us
+  default: selected
 - name: us-east-2
   country: us
-  default: selected
 - name: us-west-1
   country: us
 - name: us-west-2
