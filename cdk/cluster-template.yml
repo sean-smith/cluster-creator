@@ -1,0 +1,32 @@
+Region: us-east-1
+Image:
+  Os: alinux2
+HeadNode:
+  InstanceType: c5.large
+  DisableSimultaneousMultithreading: false
+  Networking:
+    SubnetId: '{subnet_id}'
+  Ssh:
+    KeyName: '{key_name}'
+  LocalStorage:
+    RootVolume:
+      Size: 35
+  Dcv:
+    Enabled: false
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+    - Name: queue-1
+      Networking:
+        SubnetIds:
+          - '{subnet_id}'
+      CapacityType: ONDEMAND
+      ComputeResources:
+        - Name: queue-1-c5-large
+          DisableSimultaneousMultithreading: false
+          InstanceType: c5.large
+          MinCount: 0
+          MaxCount: 10
+          Efa:
+            Enabled: false
+            GdrSupport: false
