@@ -43,7 +43,8 @@ $(function() {
   // Deploy API
   $("#api").click(function() {
     region = $("#region").val();
-    link = `https://${region}.console.aws.amazon.com/cloudformation/home?region=${region}#/stacks/create/review?stackName=pcluster-api&templateURL=https://cluster-creator.s3.amazonaws.com/assets/cfn/parallelcluster-api.yaml&param_EnableIamAdminAccess=true&param_CreateApiUserRole=false`;
+    pcluster_version = '3.0.2'
+    link = `https://${region}.console.aws.amazon.com/cloudformation/home?region=${region}#/stacks/create/review?stackName=pcluster-api&templateURL=https://${region}-aws-parallelcluster.s3.${region}.amazonaws.com/parallelcluster/${pcluster_version}/api/parallelcluster-api.yaml&param_EnableIamAdminAccess=true&param_CreateApiUserRole=false`;
     window.open(link, '_blank');
   });
 
