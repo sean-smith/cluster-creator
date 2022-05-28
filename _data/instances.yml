@@ -1,3 +1,9 @@
+- name: HPC
+  instances:
+    - name: hpc6a.48xlarge
+      vcpus: 96
+      memory: 384
+      image: od.svg
 - name: Compute
   instances:
     - name: c5n.large
