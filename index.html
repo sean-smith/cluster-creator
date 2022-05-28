@@ -6,12 +6,12 @@
       {% include head.html %}
     </head>
     <body>
+      {% include github_corner.html %}
 
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                  <h1>Cluster Creator</h1>
-
+              <div class="col-md-6">
+                  <img style="margin: 10px;" src="/assets/img/cluster-creator.svg"/>
                   <form class="form-horizontal" id="options">
                     
                     {% include text_field.html title="Cluster Name" placeholder='cluster-name' id='cluster_name' required="required" default="hpc-cluster" %}
@@ -58,12 +58,12 @@
                   <h2>Deploy Cluster</h2>
                   <div class="card" id="create_cluster">
                     <div class="card-body">
-                      <h3>Step 1: Deploy API (one-time)</h3>
-                      <small class="form-text text-muted">Set your AWS region on the left then click the "Deploy API" button below.</small>
-                      <button type="button" id="api" class="btn btn-success">Deploy API</button>
+                      <h3>Step 1: Download Config</h3>
+                      <button type="button" id="download" class="btn btn-success">Download Config</button>
+                      <small class="form-text text-muted">Configure your cluster using the options on the left then download config.</small>
                       <h3>Step 2: Create the Cluster</h3>
-                      <small class="form-text text-muted">Configure the cluster at the left then click "Create Cluster".</small>
-                      <button type="button" id="create" class="btn btn-success">Create Cluster</button>
+                      <pre><code id="create-command" class="language-yml"></code></pre>
+                      <small class="form-text text-muted">Run the pcluster cli to create the cluster. To install the CLI run "pip install aws-parallelcluster".</small>
                     </div>
                   </div>
                   <h2>Generated AWS ParallelCluster Config</h2>

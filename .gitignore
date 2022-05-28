@@ -4,7 +4,7 @@ __pycache__
 .env
 .venv
 *.egg-info
-
+Gemfile.lock
 package-lock.json
 _site/*
 .jekyll-*

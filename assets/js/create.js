@@ -36,26 +36,9 @@ $(function() {
   // click handler for download button
   $("#download").click(function() {
     button = $(this);
+    filename = $("#cluster_name").val();
     config_yml = $("#code").text();
-    download('pcluster.yml', config_yml);
-  });
-
-  // Deploy API
-  $("#api").click(function() {
-    region = $("#region").val();
-    pcluster_version = '3.0.2'
-    link = `https://${region}.console.aws.amazon.com/cloudformation/home?region=${region}#/stacks/create/review?stackName=pcluster-api&templateURL=https://${region}-aws-parallelcluster.s3.${region}.amazonaws.com/parallelcluster/${pcluster_version}/api/parallelcluster-api.yaml&param_EnableIamAdminAccess=true&param_CreateApiUserRole=false`;
-    window.open(link, '_blank');
-  });
-
-  // Create Cluster Button
-  $("#create").click(function() {
-    config_yml = $("#code").text();
-    config_base64 = btoa(config_yml);
-    cluster_name = $("#cluster_name").val();
-    region = $("#region").val();
-    link = `https://${region}.console.aws.amazon.com/cloudformation/home?region=${region}#/stacks/create/review?stackName=cluster-creator-${cluster_name}&templateURL=https://cluster-creator.s3.amazonaws.com/assets/cfn/template.yml&param_APIStack=pcluster-api&param_ClusterName=${cluster_name}&param_ConfigFile=${config_base64}`;
-    window.open(link, '_blank');
+    download(`${filename}.yaml`, config_yml);
   });
 
   // queues section of the config
@@ -225,6 +208,9 @@ $(function() {
     options['shared_storage_type'] != 'None' ? template_obj['SharedStorage'] = storage(options) : $("#storage_options").hide();
 
     $("#code").html(jsyaml.dump(template_obj));
+    filename = $("#cluster_name").val();
+    $("#create-command").html(`pcluster create-cluster -n ${filename} -c ${filename}.yaml`);
+
       
   }
 
